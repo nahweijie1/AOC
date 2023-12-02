@@ -1,10 +1,7 @@
-import re 
-
 with open("input.txt") as input:
     data = input.read()
 
-# first half 
-
+# part 1
 dataList = data.splitlines()
 sumOfCumulativeVal = 0
 for line in dataList:
@@ -15,14 +12,14 @@ for line in dataList:
     sumOfCumulativeVal += cumulativeVal
 print(sumOfCumulativeVal) # 55029
 
-# second half
+# part 2
 transformedDataList = []
 digitsSpelled = 'zero one two three four five six seven eight nine'.split()
 sumOfCumulativeVal = 0
 for line in dataList:
-    for idx, name in enumerate(digitsSpelled):
-        if name in line:
-            line = line.replace(name, f'{name}{idx}{name}')            
+    for digit, word in enumerate(digitsSpelled):
+        if word in line:
+            line = line.replace(word, f'{word}{digit}{word}')            
     transformedDataList.append(line)
 
 for line in transformedDataList:
